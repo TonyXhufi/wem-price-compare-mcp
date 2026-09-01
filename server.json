@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.wem3/wem-price-compare",
+  "title": "WEM Price Compare",
+  "description": "Price comparison across partner retailers. Read-only, 90-day history, disclosed affiliate.",
+  "version": "1.0.2",
+  "websiteUrl": "https://wem3.ai/extension/ai",
+  "icons": [
+    {
+      "src": "https://wem3.ai/mcp-icon-96.png",
+      "mimeType": "image/png",
+      "sizes": ["96x96"]
+    },
+    {
+      "src": "https://wem3.ai/mcp-icon.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://wem3.ai/api/mcp"
+    }
+  ]
+}
