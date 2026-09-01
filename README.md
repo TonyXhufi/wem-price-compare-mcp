@@ -67,19 +67,15 @@ Eight read-only tools. None of them write, purchase, or take payment.
 `compare_offers` and `verify_offer` are the two worth knowing about. They
 resolve a product identity (GTIN or WEM slug) rather than running a fresh
 retailer search, so they answer "is this actually the best price" instead of
-"what exists" — and they do not consume the daily lookup quota below.
+"what exists" — and they do not consume the daily product-lookup quota.
 
 ## Limits
 
-| Limit | Value |
-|---|---|
-| Burst | 60 requests/min per IP |
-| Product lookups | 500/day per IP |
-| Total across all callers | 1000/day |
-
-These protect the upstream retailer API quota that is shared with wem3.ai and
-the browser extension. `compare_offers`, `verify_offer` and `get_categories`
-read WEM's own catalogue and do not count against the lookup quota.
+The server is rate-limited per IP and holds a daily budget for product
+lookups, which protects the upstream retailer API quota. `compare_offers`,
+`verify_offer` and `get_categories` read WEM's own catalogue and do not count
+against that budget. Current figures are reported by the server itself at
+<https://wem3.ai/api/mcp>.
 
 When a quota is hit the server returns a normal tool result with
 `isError: true` and `_meta["wem/reason"] = "quota_denied"`, not a protocol
