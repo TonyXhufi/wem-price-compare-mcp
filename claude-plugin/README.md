@@ -1,4 +1,4 @@
-<img src="assets/icon-512.png" alt="WEM" width="96" align="right" />
+<img src="../assets/icon-512.png" alt="WEM" width="96" align="right" />
 
 # WEM Price Compare — Claude Code plugin
 
