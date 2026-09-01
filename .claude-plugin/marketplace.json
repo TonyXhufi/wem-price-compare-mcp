@@ -1,0 +1,25 @@
+{
+  "name": "wem",
+  "owner": {
+    "name": "WEM3 LTD",
+    "url": "https://wem3.ai"
+  },
+  "description": "WEM's Claude Code plugins. Retail price comparison and offer verification, backed by WEM's public MCP server.",
+  "plugins": [
+    {
+      "name": "wem-price-compare",
+      "source": "./claude-plugin",
+      "displayName": "WEM Price Compare",
+      "description": "Compare a product's price across retailers, and check a price claim before repeating it. Free, read-only, no account.",
+      "author": {
+        "name": "WEM3 LTD",
+        "url": "https://wem3.ai"
+      },
+      "homepage": "https://wem3.ai/extension/ai",
+      "repository": "https://github.com/TonyXhufi/wem-price-compare-mcp",
+      "license": "MIT",
+      "keywords": ["price-comparison", "shopping", "mcp", "retail", "deals", "verification"],
+      "category": "commerce"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "wem-price-compare",
+  "version": "1.0.2",
+  "description": "Compare a product's price across retailers with WEM — barcode-first matching, indicative prices, disclosed affiliate funding.",
+  "author": {
+    "name": "WEM3 LTD",
+    "url": "https://wem3.ai"
+  },
+  "homepage": "https://wem3.ai/extension/ai",
+  "repository": "https://github.com/TonyXhufi/wem-price-compare-mcp",
+  "license": "MIT",
+  "keywords": ["price-comparison", "shopping", "mcp", "retail", "deals"]
+}

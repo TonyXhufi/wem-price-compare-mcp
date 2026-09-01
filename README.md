@@ -33,6 +33,18 @@ Claude Desktop and Claude Code take the same URL in their MCP config:
 }
 ```
 
+**Claude Code users can install a plugin instead**, which adds the same server
+plus `/wem:compare`, `/wem:deal` and `/wem:verify` and guidance on reading the
+results. This repository is itself the marketplace:
+
+```bash
+/plugin marketplace add TonyXhufi/wem-price-compare-mcp
+/plugin install wem-price-compare@wem
+```
+
+See [`claude-plugin/`](claude-plugin/) for what it adds. The plugin is a wrapper
+around the URL above — it adds commands, not capability.
+
 ### Cursor / VS Code / other MCP clients
 
 Identical config. Any client that speaks Streamable HTTP works — the server
@@ -67,15 +79,19 @@ Eight read-only tools. None of them write, purchase, or take payment.
 `compare_offers` and `verify_offer` are the two worth knowing about. They
 resolve a product identity (GTIN or WEM slug) rather than running a fresh
 retailer search, so they answer "is this actually the best price" instead of
-"what exists" — and they do not consume the daily product-lookup quota.
+"what exists" — and they do not consume the daily lookup quota below.
 
 ## Limits
 
-The server is rate-limited per IP and holds a daily budget for product
-lookups, which protects the upstream retailer API quota. `compare_offers`,
-`verify_offer` and `get_categories` read WEM's own catalogue and do not count
-against that budget. Current figures are reported by the server itself at
-<https://wem3.ai/api/mcp>.
+| Limit | Value |
+|---|---|
+| Burst | 60 requests/min per IP |
+| Product lookups | 500/day per IP |
+| Total across all callers | 1000/day |
+
+These protect the upstream retailer API quota that is shared with wem3.ai and
+the browser extension. `compare_offers`, `verify_offer` and `get_categories`
+read WEM's own catalogue and do not count against the lookup quota.
 
 When a quota is hit the server returns a normal tool result with
 `isError: true` and `_meta["wem/reason"] = "quota_denied"`, not a protocol

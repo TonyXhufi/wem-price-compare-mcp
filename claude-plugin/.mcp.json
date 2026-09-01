@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "wem": {
+      "url": "https://wem3.ai/api/mcp"
+    }
+  }
+}
