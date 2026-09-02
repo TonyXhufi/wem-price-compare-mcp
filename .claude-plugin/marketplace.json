@@ -1,5 +1,5 @@
 {
-  "name": "wem",
+  "name": "wem3",
   "owner": {
     "name": "WEM3 LTD",
     "url": "https://wem3.ai"
@@ -7,7 +7,7 @@
   "description": "WEM's Claude Code plugins. Retail price comparison and offer verification, backed by WEM's public MCP server.",
   "plugins": [
     {
-      "name": "wem-price-compare",
+      "name": "wem",
       "source": "./claude-plugin",
       "displayName": "WEM Price Compare",
       "description": "Compare a product's price across retailers, and check a price claim before repeating it. Free, read-only, no account.",

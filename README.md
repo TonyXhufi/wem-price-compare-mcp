@@ -21,12 +21,16 @@ credential to manage. Point your client at the URL above.
 On claude.ai: **Settings → Connectors → Add custom connector**, then paste the
 URL.
 
-Claude Desktop and Claude Code take the same URL in their MCP config:
+Claude Desktop uses the same **Settings → Connectors** flow. Claude Code takes
+the URL in its MCP config — the `"type": "http"` line is required there, not
+decorative: without it Claude Code reads the entry as a local stdio server and
+skips it.
 
 ```json
 {
   "mcpServers": {
     "wem": {
+      "type": "http",
       "url": "https://wem3.ai/api/mcp"
     }
   }
@@ -39,7 +43,7 @@ results. This repository is itself the marketplace:
 
 ```bash
 /plugin marketplace add TonyXhufi/wem-price-compare-mcp
-/plugin install wem-price-compare@wem
+/plugin install wem@wem3
 ```
 
 See [`claude-plugin/`](claude-plugin/) for what it adds. The plugin is a wrapper

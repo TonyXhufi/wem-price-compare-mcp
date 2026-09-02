@@ -17,7 +17,7 @@ installing from it is the whole flow:
 
 ```bash
 /plugin marketplace add TonyXhufi/wem-price-compare-mcp
-/plugin install wem-price-compare@wem
+/plugin install wem@wem3
 ```
 
 Then:
@@ -31,12 +31,14 @@ Then:
 ## Just want the tools, not the commands?
 
 The plugin is a thin wrapper around a remote MCP server — nothing runs locally.
-If you would rather add the server directly:
+If you would rather add the server directly, keep the `"type": "http"` line —
+Claude Code rejects a `url` entry without it:
 
 ```json
 {
   "mcpServers": {
     "wem": {
+      "type": "http",
       "url": "https://wem3.ai/api/mcp"
     }
   }
@@ -85,6 +87,6 @@ tools are affiliate-tracked at no extra cost to the buyer.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). The licence covers this plugin and its
+MIT — see [LICENSE](../LICENSE). The licence covers this plugin and its
 documentation; the hosted service itself is governed by the terms at
 <https://wem3.ai/terms>.
