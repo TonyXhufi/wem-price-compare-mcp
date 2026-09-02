@@ -25,7 +25,7 @@ Then:
 ```
 /wem:compare Sony WH-1000XM5
 /wem:deal Dior Fahrenheit Aftershave 100ml
-/wem:verify AirPods Pro 2 at eBay for £199.99
+/wem:verify Dyson V15 Detect at Amazon for £599
 ```
 
 ## Just want the tools, not the commands?

@@ -1,7 +1,7 @@
 {
   "name": "wem",
   "displayName": "WEM Price Compare",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Compare a product's price across retailers with WEM — barcode-first matching, indicative prices, disclosed affiliate funding.",
   "author": {
     "name": "WEM3 LTD",
