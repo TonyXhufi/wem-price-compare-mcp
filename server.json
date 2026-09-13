@@ -3,7 +3,7 @@
   "name": "ai.wem3/wem-price-compare",
   "title": "WEM Price Compare",
   "description": "Price comparison across partner retailers. Read-only, 90-day history, disclosed affiliate.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "websiteUrl": "https://wem3.ai/extension/ai",
   "icons": [
     {

@@ -23,7 +23,7 @@ installing from it is the whole flow:
 Then:
 
 ```
-/wem:compare Sony WH-1000XM5
+/wem:compare Dyson V15 Detect
 /wem:deal Dior Fahrenheit Aftershave 100ml
 /wem:verify Dyson V15 Detect at Amazon for £599
 ```
