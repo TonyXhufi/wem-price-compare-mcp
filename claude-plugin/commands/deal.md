@@ -5,9 +5,12 @@ argument-hint: <product name>
 
 Find the lowest price for: $ARGUMENTS
 
-Call `find_lowest_price`. Show the top result with its price and retailer, then
-one or two runners-up — a single number with nothing beside it is a claim, and
-two numbers beside it are a comparison.
+Call `compare_offers` with the product name as `title` first. If that is
+empty, call `find_lowest_price`. Show the top result with its price and
+retailer, then one or two runners-up — a single number with nothing beside
+it is a claim, and two numbers beside it are a comparison.
+
+If `identity.strength` is `inferred`, say the match is by name, not barcode.
 
 Note that prices are indicative snapshots rather than live quotes, and include
 the `disclosure` line the tool returns.

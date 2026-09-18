@@ -64,11 +64,12 @@ Eight, all read-only. None writes, purchases, or takes payment.
 `find_lowest_price` · `compare_offers` · `verify_offer` · `get_categories`
 
 Two are worth knowing about. `compare_offers` resolves a product identity — a
-barcode (EAN/UPC/GTIN) or a `wem3.ai/pl/{slug}` URL — rather than running a
-fresh retailer search, so it answers "is this actually the best price" instead
-of "what exists". `verify_offer` checks a price you did not get from WEM, and
-distinguishes **unverifiable** from **false**: a claim it cannot check comes
-back as unchecked, never as refuted.
+barcode (EAN/UPC/GTIN), a `wem3.ai/pl/{slug}` URL, or a specific model name
+as `title` — rather than running a fresh retailer search, so it answers "is
+this actually the best price" instead of "what exists". A title match is
+inferred, not barcode-exact. `verify_offer` checks a price you did not get
+from WEM, and distinguishes **unverifiable** from **false**: a claim it cannot
+check comes back as unchecked, never as refuted.
 
 The bundled skill covers how to read those verdicts without overstating them.
 

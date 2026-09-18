@@ -7,12 +7,15 @@ Compare prices for: $ARGUMENTS
 
 Pick the tool by what the input actually is:
 
-- A **barcode** (8–14 digits) or a `wem3.ai/pl/{slug}` URL → `compare_offers`.
-  It resolves a product identity rather than running a fresh retailer search,
-  so it answers "is this the best price for *this exact product*" instead of
-  "what exists with a similar name". It also returns the 90-day price-history
-  low, which is the context that makes a number mean something.
-- Anything else → `search_products`.
+- A **barcode** (8–14 digits), a `wem3.ai/pl/{slug}` URL, **or a specific
+  model name** → `compare_offers`. Pass a model name as `title`. It resolves
+  a product identity rather than running a fresh retailer search, so it
+  answers "is this the best price for *this exact product*" instead of
+  "what exists with a similar name". A title match is inferred — if
+  `identity.strength` is `inferred`, say so rather than treating it as a
+  barcode. It also returns the 90-day price-history low.
+- Anything else (browse, budget, vague gift) → `search_products`.
+  Never call `find_lowest_price` on a named model.
 
 Present offers cheapest first with retailer names.
 

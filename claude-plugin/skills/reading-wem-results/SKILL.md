@@ -10,19 +10,20 @@ shoppers always complete the purchase on the retailer's own site.
 
 ## Which tool answers which question
 
-| Question | Tool |
-| --- | --- |
-| "What does this exact product cost across retailers?" | `compare_offers` — needs a barcode (EAN/UPC/GTIN) or a `wem3.ai/pl/{slug}` URL |
-| "What exists matching this description?" | `search_products` / `semantic_search` |
-| "What is the cheapest match?" | `find_lowest_price` |
-| "Is this price I heard elsewhere still true?" | `verify_offer` |
-| "What categories exist, roughly what do they cost?" | `get_categories` — static, cheap, good for scoping |
-
 `compare_offers` and `verify_offer` are the two that distinguish WEM from a
-search engine: they resolve a **product identity** rather than matching a name,
-so they answer questions about a specific thing rather than about a phrase.
+search engine: they resolve a **product identity** (barcode, catalogue slug,
+or a gated title match) rather than running a fresh retailer search, so they
+answer questions about a specific thing rather than about a phrase.
 They also read WEM's own catalogue rather than fanning out to partner APIs, so
 they do not consume the daily lookup quota.
+
+| Question | Tool |
+| --- | --- |
+| "What does this exact product cost across retailers?" | `compare_offers` — barcode (EAN/UPC/GTIN), `wem3.ai/pl/{slug}` URL, or a specific model name as `title`. A title match is inferred, not barcode-exact; if `identity.strength` is `inferred`, say so. |
+| "What exists matching this description?" | `search_products` / `semantic_search` |
+| "What is the cheapest match?" | `find_lowest_price` — never on a named model; use `compare_offers` with `title` first |
+| "Is this price I heard elsewhere still true?" | `verify_offer` |
+| "What categories exist, roughly what do they cost?" | `get_categories` — static, cheap, good for scoping |
 
 ## The three rules that make a price answer honest
 
