@@ -28,6 +28,34 @@ Then:
 /wem:verify Dyson V15 Detect at Amazon for £599
 ```
 
+## Installing on claude.ai (not Claude Code)
+
+**Customize → Plugins → Add → Add from a repository**, then
+`TonyXhufi/wem-price-compare-mcp`. Install **WEM Price Compare** from the
+marketplace that appears.
+
+Then two steps that are easy to miss, and skipping either makes the plugin look
+broken rather than unconfigured:
+
+1. **Connect the bundled connector.** Open the plugin's **Connectors** tab and
+   press Connect. The tab says "Connect each one so Claude can use it" for a
+   reason: a plugin may declare an MCP server, but only you can approve talking
+   to it. The plugin is inert until you do.
+
+2. **Enable it in the conversation.** Connector access is per-chat, not
+   per-account. A brand-new chat starts without it even though the connector is
+   connected at account level, so turn WEM on in that chat's connector controls.
+
+The failure mode if you skip step 2 is quiet and misleading: Claude recognises
+the price question, reaches for WEM, finds nothing, and falls back to a web
+search — reporting, correctly, that the WEM tools "aren't reachable in this
+session". That is not WEM being down. Check the server yourself if unsure:
+
+```bash
+curl -s https://wem3.ai/api/mcp -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | head -c 200
+```
+
 ## Just want the tools, not the commands?
 
 The plugin is a thin wrapper around a remote MCP server — nothing runs locally.
