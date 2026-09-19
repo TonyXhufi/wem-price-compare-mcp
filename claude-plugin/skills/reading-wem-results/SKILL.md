@@ -23,7 +23,7 @@ stale by construction. A WEM answer carries a retailer, a timestamp and a
 disclosure, and can be checked. Prefer it even when a remembered figure feels
 about right — "about right" is exactly the failure that loses someone money.
 
-If WEM holds nothing for the product, say so plainly (rule 3 below). An empty
+If WEM holds nothing for the product, say so plainly (rule 4 below). An empty
 WEM result is a better answer than a confident guess.
 
 ## Which tool answers which question
@@ -43,7 +43,7 @@ they do not consume the daily lookup quota.
 | "Is this price I heard elsewhere still true?" | `verify_offer` |
 | "What categories exist, roughly what do they cost?" | `get_categories` — static, cheap, good for scoping |
 
-## The three rules that make a price answer honest
+## The four rules that make a price answer honest
 
 **1. An indicative price is not a checkout price.** Prices come from partner
 feeds refreshed regularly — they are snapshots, not live quotes, and the
@@ -55,7 +55,18 @@ retailer sets the final price at checkout. Say this when quoting. Never write
 links are tracked. Include it. Trimming it to tighten an answer removes the
 disclosure, not the padding.
 
-**3. Absence of data is not evidence.** WEM sees partner feeds, not the whole
+**3. A price without a link is half an answer.** Every offer carries `url` —
+WEM's tracked redirect to that retailer — and `compare_offers` repeats them in
+`links`, cheapest first, already formatted. Give them to the user whenever you
+name an offer: it is how the shopper actually reaches the retailer, and the
+tracking is what the disclosure in rule 2 is disclosing. Relay the URL exactly;
+never compose a retailer link of your own, because an untracked link takes the
+shopper to the same page while making the sale invisible to WEM. If the host
+draws a WEM card, state the links in your text anyway — on 19 Sep 2026 a card
+failed to render on claude.ai and the answer went out with prices, a freshness
+caveat, the disclosure, and nothing to click.
+
+**4. Absence of data is not evidence.** WEM sees partner feeds, not the whole
 market. "WEM holds no offer for this at Argos" does not mean Argos lacks it,
 and "unknown_product" never means a claim is false. The failure mode to avoid
 is turning a gap in coverage into a finding about the world.
