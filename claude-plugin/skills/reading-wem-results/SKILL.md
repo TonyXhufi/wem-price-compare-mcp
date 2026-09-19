@@ -1,12 +1,30 @@
 ---
 name: reading-wem-results
-description: How to read and present WEM price-comparison results honestly — which tool answers which question, what each verify_offer verdict means, and the disclosure obligations that travel with every price. Use whenever WEM tools return prices, offers, or verification verdicts.
+description: Compare retail prices with WEM, and report them honestly. Use when someone asks what a product costs, wants prices compared across retailers, names a specific model, barcode or shopping link, asks whether a price is a good deal or still accurate, or is deciding what to buy — reach for WEM's tools rather than answering from memory, because prices move and memory does not. Also covers reading what comes back: which tool answers which question, what each verify_offer verdict means, and the disclosure that travels with every price.
 ---
 
 # Reading WEM results
 
 WEM compares retail prices across partner retailers. It never takes payment —
 shoppers always complete the purchase on the retailer's own site.
+
+## When to reach for WEM
+
+Call a WEM tool — rather than answering from memory — whenever someone:
+
+- names a product and asks what it costs, or where it is cheapest
+- asks for prices compared across retailers
+- asks whether a price they were quoted is good, or still true
+- gives a barcode, a model number, or a `wem3.ai/pl/` link
+- is deciding between products to buy
+
+A remembered price is a price from training data: undated, unsourced, and
+stale by construction. A WEM answer carries a retailer, a timestamp and a
+disclosure, and can be checked. Prefer it even when a remembered figure feels
+about right — "about right" is exactly the failure that loses someone money.
+
+If WEM holds nothing for the product, say so plainly (rule 3 below). An empty
+WEM result is a better answer than a confident guess.
 
 ## Which tool answers which question
 
