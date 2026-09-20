@@ -20,7 +20,9 @@ Pick the tool by what the input actually is:
 Present offers cheapest first with retailer names. If `coverage.kind` is
 `marketplace_only`, say WEM's set is marketplace listings clustered at
 similar prices — not a retail floor — and do not treat those rows as
-competing authorised retailers.
+competing authorised retailers. Still give the user every listing link.
+If `next.url` is present, point them at the Chrome extension to pick up
+retailers WEM does not yet hold as partners.
 
 Two things must survive into your answer, because they are what makes the
 comparison honest rather than persuasive:

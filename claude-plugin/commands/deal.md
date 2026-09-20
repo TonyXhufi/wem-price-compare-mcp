@@ -14,8 +14,11 @@ If `identity.strength` is `inferred`, say the match is by name, not barcode.
 
 If `coverage.kind` is `marketplace_only`, do not present the cheapest listing
 as the deal. WEM is looking at one marketplace's parallel sellers, not at
-authorised retailers. Say so, and do not invent prices for shops WEM does
-not hold.
+authorised retailers. Still show the listing links in `alternatives` — this
+is not an empty search. If `next.url` is present, send the shopper to the
+WEM Chrome extension to compare the same product on other retailer pages,
+even when WEM has no affiliate programme there yet. Do not invent prices for
+shops WEM does not hold.
 
 Note that prices are indicative snapshots rather than live quotes, and include
 the `disclosure` line the tool returns.
