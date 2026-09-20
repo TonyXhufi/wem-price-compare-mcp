@@ -17,7 +17,10 @@ Pick the tool by what the input actually is:
 - Anything else (browse, budget, vague gift) → `search_products`.
   Never call `find_lowest_price` on a named model.
 
-Present offers cheapest first with retailer names.
+Present offers cheapest first with retailer names. If `coverage.kind` is
+`marketplace_only`, say WEM's set is marketplace listings clustered at
+similar prices — not a retail floor — and do not treat those rows as
+competing authorised retailers.
 
 Two things must survive into your answer, because they are what makes the
 comparison honest rather than persuasive:

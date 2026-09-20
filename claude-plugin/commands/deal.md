@@ -12,6 +12,11 @@ it is a claim, and two numbers beside it are a comparison.
 
 If `identity.strength` is `inferred`, say the match is by name, not barcode.
 
+If `coverage.kind` is `marketplace_only`, do not present the cheapest listing
+as the deal. WEM is looking at one marketplace's parallel sellers, not at
+authorised retailers. Say so, and do not invent prices for shops WEM does
+not hold.
+
 Note that prices are indicative snapshots rather than live quotes, and include
 the `disclosure` line the tool returns.
 

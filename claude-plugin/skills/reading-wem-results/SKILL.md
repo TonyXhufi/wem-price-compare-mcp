@@ -43,7 +43,7 @@ they do not consume the daily lookup quota.
 | "Is this price I heard elsewhere still true?" | `verify_offer` |
 | "What categories exist, roughly what do they cost?" | `get_categories` — static, cheap, good for scoping |
 
-## The four rules that make a price answer honest
+## The five rules that make a price answer honest
 
 **1. An indicative price is not a checkout price.** Prices come from partner
 feeds refreshed regularly — they are snapshots, not live quotes, and the
@@ -70,6 +70,17 @@ caveat, the disclosure, and nothing to click.
 market. "WEM holds no offer for this at Argos" does not mean Argos lacks it,
 and "unknown_product" never means a claim is false. The failure mode to avoid
 is turning a gap in coverage into a finding about the world.
+
+**5. A marketplace-only cluster is not a retail floor.** When `coverage.kind`
+is `marketplace_only`, or `find_lowest_price` returns a null recommendation
+with that reason, every row WEM holds is from one marketplace (usually eBay)
+at similar prices. That is parallel listings, not competing retailers. Do
+not name the cheapest as the deal, and do not present thirteen eBay sellers
+as thirteen shops. Say WEM does not hold an authorised retailer for this
+product. Leave-on beauty, fragrance and similar goods: a cluster far below
+typical brand retail is a warning, not a bargain. Rule 4 still applies —
+authorised retailers may exist outside WEM's partners; look them up rather
+than inventing a WEM price for them.
 
 ## Reading a verify_offer verdict
 
