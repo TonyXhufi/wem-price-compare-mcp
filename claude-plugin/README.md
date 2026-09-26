@@ -1,4 +1,4 @@
-<img src="../assets/icon-512.png" alt="WEM" width="96" align="right" />
+![WEM](assets/icon-96.png)
 
 # WEM Price Compare — Claude Code plugin
 
@@ -73,7 +73,7 @@ Claude Code rejects a `url` entry without it:
 }
 ```
 
-Same eight tools, no slash commands. The plugin exists to add the commands and
+Same eleven tools, no slash commands. The plugin exists to add the commands and
 the result-reading guidance, not to add capability.
 
 ## Commands
@@ -86,10 +86,11 @@ the result-reading guidance, not to add capability.
 
 ## Tools
 
-Eight, all read-only. None writes, purchases, or takes payment.
+Eleven, all read-only. None writes, purchases, or takes payment.
 
-`search_products` · `semantic_search` · `get_product` · `compare_products` ·
-`find_lowest_price` · `compare_offers` · `verify_offer` · `get_categories`
+`get_categories` · `search_products` · `semantic_search` · `lookup_products` ·
+`get_product` · `compare_products` · `compare_offers` · `find_lowest_price` ·
+`verify_offer` · `get_evidence_receipt` · `search_promotions`
 
 Two are worth knowing about. `compare_offers` resolves a product identity — a
 barcode (EAN/UPC/GTIN), a `wem3.ai/pl/{slug}` URL, or a specific model name
@@ -99,7 +100,33 @@ inferred, not barcode-exact. `verify_offer` checks a price you did not get
 from WEM, and distinguishes **unverifiable** from **false**: a claim it cannot
 check comes back as unchecked, never as refuted.
 
-The bundled skill covers how to read those verdicts without overstating them.
+The other three: `lookup_products` checks a batch of barcodes, ASINs or WEM
+links at once; `get_evidence_receipt` looks up the receipt a `verify_offer`
+call returned, so an answer can cite what was checked; `search_promotions`
+lists current sales from WEM's affiliate retailers, with dates.
+
+The bundled skill covers how to read `verify_offer`'s verdicts without
+overstating them.
+
+## What the plugin sends, and where
+
+Nothing runs on your machine. The plugin's one network destination is WEM's
+MCP server, `https://wem3.ai/api/mcp`, declared in `.mcp.json`. When Claude
+calls a WEM tool, it sends that tool's arguments: a product name, a barcode, a
+`wem3.ai` link or a price claim. It sends no files, no conversation history and
+no credentials.
+
+For each call, WEM records the tool name, whether it succeeded, how long it
+took, and which assistant made it (read from the client's user agent and its
+self-reported name). It does not record the query or the arguments, with one
+exception: when `verify_offer` is asked about a product, or a product at a
+retailer, that WEM does not hold, it records what was asked about (the
+barcode, WEM slug or product name, and the retailer named), with no price and
+nothing that identifies you, so the gap can be filled. Call records are kept
+for a year. Details: <https://wem3.ai/privacy>, section 5a.
+
+Product links in results go through a WEM redirect (`wem3.ai/api/go`) that
+may add an affiliate parameter before it sends you to the retailer.
 
 ## Prices and disclosure
 
@@ -116,6 +143,6 @@ tools are affiliate-tracked at no extra cost to the buyer.
 
 ## Licence
 
-MIT — see [LICENSE](../LICENSE). The licence covers this plugin and its
+MIT — see [LICENSE](LICENSE). The licence covers this plugin and its
 documentation; the hosted service itself is governed by the terms at
 <https://wem3.ai/terms>.

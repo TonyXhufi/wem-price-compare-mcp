@@ -67,23 +67,27 @@ Rate limits are shared between the two — both spend the same retailer quota.
 
 ## Tools
 
-Eight read-only tools. None of them write, purchase, or take payment.
+Eleven read-only tools. None of them write, purchase, or take payment.
 
 | Tool | What it does |
 |---|---|
 | `search_products` | Keyword search across connected retailers |
 | `semantic_search` | Find products from a natural-language description |
+| `lookup_products` | Check a batch of barcodes, ASINs or WEM links at once |
 | `get_product` | Full detail for one product, by provider and ID |
 | `compare_products` | Compare 2–5 products side by side |
 | `find_lowest_price` | Single lowest-priced match under stated constraints |
 | `compare_offers` | Multi-retailer offers for one product, cheapest first, with a 90-day price-history low |
 | `verify_offer` | Check whether a price claim is still true before repeating it |
+| `get_evidence_receipt` | Look up the receipt a `verify_offer` call returned |
+| `search_promotions` | Current sales from WEM's affiliate retailers, with dates |
 | `get_categories` | Category taxonomy with approximate price ranges |
 
 `compare_offers` and `verify_offer` are the two worth knowing about. They
-resolve a product identity (GTIN or WEM slug) rather than running a fresh
-retailer search, so they answer "is this actually the best price" instead of
-"what exists" — and they do not consume the daily lookup quota below.
+resolve a product identity (GTIN, WEM slug, or a gated title match) rather
+than running a fresh retailer search, so they answer "is this actually the
+best price" instead of "what exists" — and they do not consume the daily
+lookup quota below.
 
 ## Limits
 
