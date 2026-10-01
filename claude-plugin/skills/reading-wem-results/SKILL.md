@@ -86,6 +86,26 @@ Leave-on beauty, fragrance and similar goods: a cluster far below typical brand 
 - `not_at_retailer` — no offer held there. Not proof of absence.
 - `unknown_product` — unverifiable. Report as unchecked, never as refuted.
 
+## Another model code for the same product (`sameModel`)
+
+Shops sell some TVs and appliances under model codes of their own. When the
+maker's own page says another code is this product, and a person at WEM has
+checked that page, `compare_offers` and `verify_offer` add `sameModel`: one
+row per other code.
+
+- **Beside the answer, never inside it.** Those prices belong to another
+  product page. Do not merge them into the offers, do not call one this
+  product's lowest price or the best deal, and never let one change a
+  `verify_offer` verdict: a cheaper sister code does not make a quoted price
+  wrong.
+- **Its own line, after the comparison.** Quote `summary`, name the maker's
+  page (`maker.host`) as the source of the claim, and link `url`, WEM's
+  comparison for that model, rather than a shop.
+- **`differs` is not like for like.** Say what differs (`differences`) and do
+  not call its price a saving. Only an `identical` row's `summary` mentions a
+  saving; quote it rather than working one out yourself.
+- No `sameModel` is not evidence that no other code exists (rule 4).
+
 ## What WEM will not tell you
 
 It cannot say a price is the market's lowest, because it does not see the whole
