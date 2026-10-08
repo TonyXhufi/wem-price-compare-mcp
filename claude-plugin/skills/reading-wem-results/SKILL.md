@@ -71,7 +71,7 @@ market. "WEM holds no offer for this at Argos" does not mean Argos lacks it,
 and "unknown_product" never means a claim is false. The failure mode to avoid
 is turning a gap in coverage into a finding about the world.
 
-**5. A marketplace-only cluster is not a retail floor — and it is not an empty search.** When `coverage.kind` is `marketplace_only`, every row WEM holds is from one marketplace (usually eBay) at similar prices. That is parallel listings, not competing authorised retailers. Do not name the cheapest as the deal, and do not present thirteen eBay sellers as thirteen shops.
+**5. A marketplace-only cluster is not a retail floor — and it is not an empty search.** When `coverage.kind` is `marketplace_only`, every row WEM holds is from one marketplace at similar prices. That is parallel listings, not competing authorised retailers. Do not name the cheapest as the deal, and do not present thirteen sellers on one marketplace as thirteen shops.
 
 Give the user the listing links anyway. They are in `products` / `alternatives` / `links`. Each offer's `channel` is `retailer` or `marketplace` — do not present marketplace rows as competing authorised shops. A missing affiliate programme is not a reason to hide shops. If `next.surface` is `chrome_extension`, send the shopper there to compare the same product on Boots, Sephora or any other retailer page — WEM shows that page's price even before it has their programme.
 
