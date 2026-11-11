@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "wem": {
+      "type": "streamable-http",
+      "url": "https://wem3.ai/api/mcp"
+    }
+  }
+}

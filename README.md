@@ -49,6 +49,18 @@ results. This repository is itself the marketplace:
 See [`claude-plugin/`](claude-plugin/) for what it adds. The plugin is a wrapper
 around the URL above — it adds commands, not capability.
 
+### Grok, Perplexity, Muse, Mistral, GitHub Copilot
+
+Each of these is a plugin directory in this repository, on the same server:
+
+- Grok Build: [`grok-plugin/`](grok-plugin/)
+- Perplexity: [`perplexity-plugin/`](perplexity-plugin/) (import that folder; the package sets no custom headers)
+- Muse Code: [`muse-plugin/settings.json`](muse-plugin/settings.json)
+- Mistral: [`mistral-plugin/`](mistral-plugin/)
+- GitHub Copilot: `copilot plugin install TonyXhufi/wem-price-compare-mcp:copilot-plugin`
+
+Gemini CLI installs from `https://github.com/TonyXhufi/wem-gemini-extension`.
+
 ### Cursor / VS Code / other MCP clients
 
 Identical config. Any client that speaks Streamable HTTP works — the server

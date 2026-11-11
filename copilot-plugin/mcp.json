@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "wem": {
+      "type": "streamable-http",
+      "url": "https://wem3.ai/api/mcp"
+    }
+  }
+}
